@@ -7,6 +7,7 @@ package br.senac.tads.dsw.tutorial;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
@@ -56,7 +57,8 @@ public class DadosPessoaisServlet2 extends HttpServlet {
         
         // CONVERTE OBJ JAVA PARA JSON (VER NO POM.XML A DEPENDENCIA PARA LOCALDATE)
         ObjectMapper mapper = new ObjectMapper();
-       // mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+        mapper.registerModule(new JavaTimeModule());
         String json = mapper.writeValueAsString(dados);
         System.out.println("JSON gerado: " + json);
         
