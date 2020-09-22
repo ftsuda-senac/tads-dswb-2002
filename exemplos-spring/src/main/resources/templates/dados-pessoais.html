@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Madruga - Página pessoal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+    <article>
+        <h1 th:text="${nome}">Seu Madruga</h1>
+        <header>
+            <div class="avatar">
+                <img th:src="@{/img/madruga.jpg}" alt="Foto de perfil">
+            </div>
+            <div class="contato">
+                <p th:text="${telefone}">(11) 99999-7272</p>
+                <p><a th:href="${'mailto:' + email}" th:text=${email}>madruga@teste.com.br</a></p>
+                <p>Data de nascimento: <span th:text="${dataNascimento}"></span></p>
+                <p><a href="https://br.linkedin.com">LinkedIn</a></p>
+            </div>
+        </header>
+    </article>
+</body>
+</html>

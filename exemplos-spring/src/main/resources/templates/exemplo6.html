@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exemplos Spring MVC</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>Exemplo 6</h1>
+            <p>User-agent: <span th:text="${ua}"></span></p>
+            <h5 style="color: green" th:if="${mobile}">Mobile: SIM</h5>
+            <h5 style="color: red" th:if="${!mobile}">Mobile: NÃO</h5>
+        </div>
+    </body>
+</html>
