@@ -11,72 +11,72 @@
                 <div class="col-12">
                     <h1>Formulário</h1>
                     <div>
-                        <form method="post" th:action="@{/formulario}">
+                        <form method="post" th:action="@{/formulario}" th:object="${dados}">
                             <div>
                                 <label>Nome</label>
-                                <input type="text" name="nome">
+                                <input type="text" name="nome" th:field="*{nome}">
                             </div>
                             <div>
                                 <label>E-mail</label>
-                                <input type="email" name="email">
+                                <input type="email" name="email" th:field="*{email}">
                             </div>
                             <div>
                                 <label>Telefone</label>
-                                <input type="text" name="telefone">
+                                <input type="text" name="telefone" th:field="*{telefone}">
                             </div>
                             <div>
                                 <label>Senha</label>
-                                <input type="password" name="senha">
+                                <input type="password" name="senha" th:field="*{senha}">
                             </div>
                             <div>
                                 <label>Repetir senha</label>
-                                <input type="password" name="repetirSenha">
+                                <input type="password" name="repetirSenha" th:field="*{repetirSenha}">
                             </div>
                             <div>
                                 <label>Descrição</label>
-                                <textarea name="descricao"></textarea>
+                                <textarea name="descricao" th:field="*{descricao}"></textarea>
                             </div>
                             <div>
                                 <label>Número de 1 a 99</label>
-                                <input type="number" name="numero">
+                                <input type="number" name="numero" th:field="*{numero}">
                             </div>
                             <div>
                                 <label>Altura</label>
-                                <input type="number" name="altura">
+                                <input type="number" name="altura" th:field="*{altura}">
                             </div>
                             <div>
                                 <label>Peso</label>
-                                <input type="number" name="peso">
+                                <input type="number" name="peso" th:field="*{peso}">
                             </div>
                             <div>
                                 <label>Data nascimento</label>
-                                <input type="date" name="dataNascimento">
+                                <input type="date" name="dataNascimento" th:field="*{dataNascimento}">
                             </div>
                             <div>
                                 <label>Sexo</label>
                                 <div>
-                                    <input type="radio" name="sexo" value="0"><label>Feminino</label>
+                                    <input type="radio" name="sexo" value="0" th:field="*{sexo}"><label>Feminino</label>
                                 </div>
                                 <div>
-                                    <input type="radio" name="sexo" value="1"><label>Masculino</label>
+                                    <input type="radio" name="sexo" value="1" th:field="*{sexo}"><label>Masculino</label>
                                 </div>
                             </div>
                             <div>
                                 <label>Interesses</label>
                                 <div>
-                                    <input type="checkbox" name="interesses" value="Tecnologia"><label>Tecnologia</label>
+                                    <input type="checkbox" name="interesses" value="Tecnologia" th:field="*{interesses}"><label>Tecnologia</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="interesses" value="Esportes"><label>Esportes</label>
+                                    <input type="checkbox" name="interesses" value="Esportes" th:field="*{interesses}"><label>Esportes</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="interesses" value="Gastronomia"><label>Gastronomia</label>
+                                    <input type="checkbox" name="interesses" value="Gastronomia" th:field="*{interesses}"><label>Gastronomia</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="interesses" value="Viagens"><label>Viagens</label>
+                                    <input type="checkbox" name="interesses" value="Viagens" th:field="*{interesses}"><label>Viagens</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="interesses" value="Investimentos"><label>Investimentos</label>
+                                    <input type="checkbox" name="interesses" value="Investimentos" th:field="*{interesses}"><label>Investimentos</label>
                                 </div>
                             </div>
                             <div>
