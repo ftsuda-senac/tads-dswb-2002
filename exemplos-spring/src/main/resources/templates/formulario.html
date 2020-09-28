@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Spring MVC - Exemplos POST</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Formulário</h1>
+                    <div>
+                        <form method="post" th:action="@{/formulario}">
+                            <div>
+                                <label>Nome</label>
+                                <input type="text" name="nome">
+                            </div>
+                            <div>
+                                <label>E-mail</label>
+                                <input type="email" name="email">
+                            </div>
+                            <div>
+                                <label>Telefone</label>
+                                <input type="text" name="telefone">
+                            </div>
+                            <div>
+                                <label>Senha</label>
+                                <input type="password" name="senha">
+                            </div>
+                            <div>
+                                <label>Repetir senha</label>
+                                <input type="password" name="repetirSenha">
+                            </div>
+                            <div>
+                                <label>Descrição</label>
+                                <textarea name="descricao"></textarea>
+                            </div>
+                            <div>
+                                <label>Número de 1 a 99</label>
+                                <input type="number" name="numero">
+                            </div>
+                            <div>
+                                <label>Altura</label>
+                                <input type="number" name="altura">
+                            </div>
+                            <div>
+                                <label>Peso</label>
+                                <input type="number" name="peso">
+                            </div>
+                            <div>
+                                <label>Data nascimento</label>
+                                <input type="date" name="dataNascimento">
+                            </div>
+                            <div>
+                                <label>Sexo</label>
+                                <div>
+                                    <input type="radio" name="sexo" value="0"><label>Feminino</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="sexo" value="1"><label>Masculino</label>
+                                </div>
+                            </div>
+                            <div>
+                                <label>Interesses</label>
+                                <div>
+                                    <input type="checkbox" name="interesses" value="Tecnologia"><label>Tecnologia</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="interesses" value="Esportes"><label>Esportes</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="interesses" value="Gastronomia"><label>Gastronomia</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="interesses" value="Viagens"><label>Viagens</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="interesses" value="Investimentos"><label>Investimentos</label>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="reset">Reiniciar</button>
+                                <button type="submit">Enviar dados</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

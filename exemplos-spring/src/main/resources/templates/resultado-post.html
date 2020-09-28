@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>Dados enviados</h1>
+            <div>
+                <p>Nome: <span th:text="${dados.nome}"></span></p>
+                <p>E-mail: <span th:text="${dados.email}"></span></p>
+                <p>Telefone: <span th:text="${dados.telefone}"></span></p>
+                <p>Senha: <span th:text="${dados.senha}"></span></p>
+                <p>Repetir senha: <span th:text="${dados.repetirSenha}"></span></p>
+                <p>Descrição: <span th:text="${dados.descricao}"></span></p>
+                <p>Número: <span th:text="${dados.numero}"></span></p>
+                <p>Altura: <span th:text="${dados.altura}"></span></p>
+                <p>Peso: <span th:text="${dados.peso}"></span></p>
+                <p>Data nascimento: <span th:text="${dados.dataNascimento}"></span></p>
+                <p>Sexo:
+                    <span th:if="${dados.sexo == 1}">Masculino</span>
+                    <span th:if="${dados.sexo != 1}">Feminino</span>
+                </p>
+                <p>Interesses:
+                    <span th:if="${dados.interesses == null || dados.interesses.length < 1}">Nenhum interesse selecionado</span>
+                    <ul th:if="${dados.interesses.length > 0}" th:each="interesse : ${dados.interesses}">
+                        <li th:text="${interesse}"></li>
+                    </ul>
+                </p>
+            </div>
+            <a th:href="@{/formulario}">Voltar</a>
+        </div>
+    </body>
+</html>
