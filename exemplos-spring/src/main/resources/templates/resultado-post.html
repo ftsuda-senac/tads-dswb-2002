@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>
+        <div th:if="${dados != null}">
             <h1>Dados enviados</h1>
             <div>
                 <p>Nome: <span th:text="${dados.nome}"></span></p>
@@ -30,6 +30,10 @@
                     </ul>
                 </p>
             </div>
+            <a th:href="@{/formulario}">Voltar</a>
+        </div>
+        <div th:if="${dados == null}">
+            <h3>Página inválida</h3>
             <a th:href="@{/formulario}">Voltar</a>
         </div>
     </body>

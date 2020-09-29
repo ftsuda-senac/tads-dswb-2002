@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/formulario")
@@ -58,6 +59,27 @@ public class FormularioController {
         ModelAndView mv = new ModelAndView("resultado-post");
         mv.addObject("dados", formulario);
         return mv;
+    }
+
+    @PostMapping("/prg")
+    public ModelAndView receberDadosPostRedirectGet(
+            @ModelAttribute("dados") @Valid Formulario formulario,
+            BindingResult bindingResult,
+            RedirectAttributes redirectAttr) {
+        if (bindingResult.hasErrors()) {
+            return new ModelAndView("formulario");
+        }
+        
+        redirectAttr.addFlashAttribute("dados", formulario);
+        return new ModelAndView("redirect:/formulario/prg-resultado");
+//        ModelAndView mv = new ModelAndView("resultado-post");
+//        mv.addObject("dados", formulario);
+//        return mv;
+    }
+
+    @GetMapping("/prg-resultado")
+    public ModelAndView mostarResultadoPostRedirectGet() {
+        return new ModelAndView("resultado-post");
     }
 
 }

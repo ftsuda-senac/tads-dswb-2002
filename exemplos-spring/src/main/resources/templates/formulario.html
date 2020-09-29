@@ -19,7 +19,7 @@
                 <div class="col-12">
                     <h1>Formulário</h1>
                     <div>
-                        <form method="post" th:action="@{/formulario}" th:object="${dados}" novalidate>
+                        <form method="post" th:action="@{/formulario/prg}" th:object="${dados}" novalidate>
                             <div>
                                 <label>Nome</label>
                                 <input type="text" name="nome" th:classappend="${#fields.hasErrors('nome')}? 'is-invalid'" th:field="*{nome}" required maxlength="100">
