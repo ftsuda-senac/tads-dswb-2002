@@ -7,7 +7,9 @@ package br.senac.tads.dsw.exemplosspring;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,7 +49,12 @@ public class FormularioController {
     }
 
     @PostMapping
-    public ModelAndView receberDados(@ModelAttribute Formulario formulario) {
+    public ModelAndView receberDados(
+            @ModelAttribute("dados") @Valid Formulario formulario,
+            BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ModelAndView("formulario");
+        }
         ModelAndView mv = new ModelAndView("resultado-post");
         mv.addObject("dados", formulario);
         return mv;
