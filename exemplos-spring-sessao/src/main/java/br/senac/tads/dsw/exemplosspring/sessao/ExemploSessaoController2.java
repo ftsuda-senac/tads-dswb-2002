@@ -19,54 +19,52 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.senac.tads.dsw.exemplosspring.sessao.item.Item;
 import br.senac.tads.dsw.exemplosspring.sessao.item.ItemService;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import java.io.Serializable;
+import org.springframework.context.annotation.Scope;
 
 /**
- * Para remover atributos ver
- * https://stackoverflow.com/questions/18209233/spring-mvc-how-to-remove-session-attribute
- *
+ * 
  * @author ftsuda
  */
 @Controller
-@RequestMapping("/exemplo-sessao1")
-@SessionAttributes("itensSelecionados1")
-public class ExemploSessaoController1 {
+@Scope("session")
+@RequestMapping("/exemplo-sessao2")
+public class ExemploSessaoController2 implements Serializable {
 
     @Autowired
     private ItemService itemService;
+    
+    private List<ItemSelecionado> itensSelecionados = new ArrayList<>();
 
     @GetMapping
     public ModelAndView mostrarTela() {
-        return new ModelAndView("exemplo-sessao1").addObject("itens", itemService.findAll());
+        return new ModelAndView("exemplo-sessao2").addObject("itens", itemService.findAll());
     }
 
     @PostMapping
     public ModelAndView adicionarItem(
             @ModelAttribute("itemId") Integer itemId,
-            @ModelAttribute("itensSelecionados1") List<ItemSelecionado> itensSelecionados,
             RedirectAttributes redirAttr) {
         Item item = itemService.findById(itemId);
         itensSelecionados.add(new ItemSelecionado(item));
         redirAttr.addFlashAttribute("msg", "Item ID " + item.getId() + " adicionado com sucesso");
-        return new ModelAndView("redirect:/exemplo-sessao1");
+        return new ModelAndView("redirect:/exemplo-sessao2");
     }
 
     @GetMapping("/limpar")
-    public ModelAndView limparSessao(@ModelAttribute("itensSelecionados1") List<ItemSelecionado> itensSelecionados,
-            RedirectAttributes redirAttr) {
+    public ModelAndView limparSessao(RedirectAttributes redirAttr) {
         itensSelecionados.clear();
         redirAttr.addFlashAttribute("msg", "Itens removidos");
-        return new ModelAndView("redirect:/exemplo-sessao1");
+        return new ModelAndView("redirect:/exemplo-sessao2");
     }
 
-    @ModelAttribute("itensSelecionados1")
     public List<ItemSelecionado> getItensSelecionados() {
-        return new ArrayList<>();
+        return itensSelecionados;
     }
 
     @ModelAttribute("titulo")
     public String getTitulo() {
-        return "Exemplo Sessao 1 - Uso do @SessionAttributes";
+        return "Exemplo Sessao 2 - Uso do @Controller com @Scope(\"session\")";
     }
 
 }
