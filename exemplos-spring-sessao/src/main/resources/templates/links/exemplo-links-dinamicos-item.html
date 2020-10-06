@@ -9,7 +9,7 @@
     <body>
         <h1>Página do Item ID <span th:text="${item.id}"></span></h1>
         <h2>Nome: <span th:text="${item.nome}"></span></h2>
-        <p>Cor HEX: <span th:text="${item.corHex}"></span></p>
+        <p>Cor HEX: <span th:text="${item.corHex}" th:style="${'background-color: ' + item.corHex}"></span></p>
         <p>Valor: <span th:text="${item.valor}"></span></p>
         <p>Data e Hora: <span th:text="${item.dataHora}"></span></p>
         <p th:if="${#lists.isEmpty(item.categorias)}">Sem categorias</p>

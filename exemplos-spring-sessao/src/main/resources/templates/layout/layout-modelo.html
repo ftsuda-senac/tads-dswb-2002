@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="h-100">
     <head>
-        <title>Exemplo página completa</title>
+        <title>Exemplo Layout Dialect</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -70,51 +70,12 @@
             </div>
         </nav>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-9">
-                    <main classrole="main" layout:fragment="conteudo">
-                        <h1>ESTA AREA SERÁ SUBSTITUÍDA PELOS CONTEUDOS ESPECÍFICOS DE CADA PÁGINA</h1>
-                    </main>
-                </div>
-                <aside class="col-md-3 blog-sidebar">
-                    <div class="p-4 mb-3 bg-light rounded">
-                        <h4 class="font-italic">About</h4>
-                        <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-                    </div>
-
-                    <div class="p-4">
-                        <h4 class="font-italic">Archives</h4>
-                        <ol class="list-unstyled mb-0">
-                            <li><a href="#">March 2014</a></li>
-                            <li><a href="#">February 2014</a></li>
-                            <li><a href="#">January 2014</a></li>
-                            <li><a href="#">December 2013</a></li>
-                            <li><a href="#">November 2013</a></li>
-                            <li><a href="#">October 2013</a></li>
-                            <li><a href="#">September 2013</a></li>
-                            <li><a href="#">August 2013</a></li>
-                            <li><a href="#">July 2013</a></li>
-                            <li><a href="#">June 2013</a></li>
-                            <li><a href="#">May 2013</a></li>
-                            <li><a href="#">April 2013</a></li>
-                        </ol>
-                    </div>
-
-                    <div class="p-4">
-                        <h4 class="font-italic">Elsewhere</h4>
-                        <ol class="list-unstyled">
-                            <li><a href="#">GitHub</a></li>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">Facebook</a></li>
-                        </ol>
-                    </div>
-                </aside><!-- /.blog-sidebar -->
-            </div>
-        </div>
+        <main role="main" layout:fragment="conteudo">
+            <h1>ESTA AREA SERA SUBSTITUIDA PELOS CONTEÚDOS ESPECÍFICOS DE CADA PÁGINA</h1>
+        </main>
 
         <footer class="footer mt-auto py-3">
-            <div class="container text-center">
+            <div class="container">
                 <span class="text-muted">&copy; Senac TADS DSW 2020-2</span>
             </div>
         </footer>
