@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div th:if="${msg}" th:text="${msg}"></div>
+        <h1>Exemplo Form com Validação + i18n</h1>
+        <form th:action="@{/i18n/form}" method="post" th:object="${info}" novalidate>
+            <div>
+                <label th:text="#{form.nome.label}">Nome</label>
+                <input type="text" th:field="*{nome}" th:placeholder="#{form.nome.placeholder}">
+                <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+            </div>
+            <div>
+                <label th:text="#{form.dataNascimento.label}">Data nascimento</label>
+                <input type="date" th:field="*{dataNascimento}">
+                <div th:if="${#fields.hasErrors('dataNascimento')}" th:errors="*{dataNascimento}"></div>
+            </div>
+            <div>
+                <label th:text="#{form.numero.label}">Número (1 a 99)</label>
+                <input type="number" th:field="*{numero}">
+                <div th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></div>
+            </div>
+            <button type="submit" th:text="#{form.submit}">Enviar</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exemplo com i18n</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>Exemplo com i18n</h1>
+            <p>Accept-Language: <span th:text="${acceptLanguage}"></span></p>
+            <hr>
+            <h2 th:text="#{exemplo.titulo}"></h2>
+            <p th:text="#{exemplo.boasvindas}"></p>
+            <p th:text="#{exemplo.mensagem}"></p>
+        </div>
+    </body>
+</html>
