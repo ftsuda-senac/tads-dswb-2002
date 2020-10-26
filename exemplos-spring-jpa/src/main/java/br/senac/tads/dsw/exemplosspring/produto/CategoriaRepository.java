@@ -4,10 +4,10 @@ import java.util.List;
 
 public interface CategoriaRepository {
 
-	List<Categoria> findAll();
+    List<Categoria> findAll();
 
-	Categoria findById(Integer id);
+    Categoria findById(Integer id);
 
-	Categoria save(Categoria cat);
+    Categoria save(Categoria cat);
 
 }

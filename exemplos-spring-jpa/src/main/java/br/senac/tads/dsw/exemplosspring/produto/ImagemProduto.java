@@ -11,77 +11,77 @@ import javax.validation.constraints.Size;
  */
 public class ImagemProduto implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private Long id;
+    private Long id;
 
-	@NotBlank
-	@Size(max = 500)
-	private String nomeArquivo;
+    @NotBlank
+    @Size(max = 500)
+    private String nomeArquivo;
 
-	@Size(max = 1000)
-	private String legenda;
+    @Size(max = 1000)
+    private String legenda;
 
-	private Produto produto;
+    private Produto produto;
 
-	public ImagemProduto() {
+    public ImagemProduto() {
 
-	}
+    }
 
-	public ImagemProduto(String nomeArquivo, String legenda) {
-		this.nomeArquivo = nomeArquivo;
-		this.legenda = legenda;
-	}
+    public ImagemProduto(String nomeArquivo, String legenda) {
+        this.nomeArquivo = nomeArquivo;
+        this.legenda = legenda;
+    }
 
-	public ImagemProduto(Long id, String nomeArquivo, String legenda) {
-		this.id = id;
-		this.nomeArquivo = nomeArquivo;
-		this.legenda = legenda;
-	}
+    public ImagemProduto(Long id, String nomeArquivo, String legenda) {
+        this.id = id;
+        this.nomeArquivo = nomeArquivo;
+        this.legenda = legenda;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getNomeArquivo() {
-		return nomeArquivo;
-	}
+    public String getNomeArquivo() {
+        return nomeArquivo;
+    }
 
-	public void setNomeArquivo(String nomeArquivo) {
-		this.nomeArquivo = nomeArquivo;
-	}
+    public void setNomeArquivo(String nomeArquivo) {
+        this.nomeArquivo = nomeArquivo;
+    }
 
-	public String getLegenda() {
-		return legenda;
-	}
+    public String getLegenda() {
+        return legenda;
+    }
 
-	public void setLegenda(String legenda) {
-		this.legenda = legenda;
-	}
+    public void setLegenda(String legenda) {
+        this.legenda = legenda;
+    }
 
-	public Produto getProduto() {
-		return produto;
-	}
+    public Produto getProduto() {
+        return produto;
+    }
 
-	public void setProduto(Produto produto) {
-		this.produto = produto;
-	}
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
 
-	public String getUrlImagem() {
-		if (nomeArquivo.startsWith("http")) {
-			return nomeArquivo;
-		}
-		// MOCK
-		return "http://lorempixel.com/400/200/sports/";
-	}
+    public String getUrlImagem() {
+        if (nomeArquivo.startsWith("http")) {
+            return nomeArquivo;
+        }
+        // MOCK
+        return "http://lorempixel.com/400/200/sports/";
+    }
 
-	@Override
-	public String toString() {
-		return "ImagemProduto{" + "id=" + id + ", legenda=" + legenda + ", nomeArquivo=" + nomeArquivo + '}';
-	}
+    @Override
+    public String toString() {
+        return "ImagemProduto{" + "id=" + id + ", legenda=" + legenda + ", nomeArquivo=" + nomeArquivo + '}';
+    }
 
 }

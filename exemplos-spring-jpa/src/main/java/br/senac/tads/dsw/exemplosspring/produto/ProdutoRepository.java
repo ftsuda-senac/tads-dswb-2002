@@ -4,14 +4,14 @@ import java.util.List;
 
 public interface ProdutoRepository {
 
-	List<Produto> findAll(int offset, int quantidade);
+    List<Produto> findAll(int offset, int quantidade);
 
-	List<Produto> findByCategoria(List<Integer> idsCat, int offset, int quantidade);
+    List<Produto> findByCategoria(List<Integer> idsCat, int offset, int quantidade);
 
-	Produto findById(Long id);
+    Produto findById(Long id);
 
-	Produto save(Produto p);
+    Produto save(Produto p);
 
-	void deleteById(Long id);
+    void deleteById(Long id);
 
 }
