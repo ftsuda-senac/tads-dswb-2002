@@ -18,11 +18,11 @@ import org.springframework.stereotype.Service;
  *
  * @author fernando.tsuda
  */
-@Service
+// @Service
 public class ProdutoRepositoryMockImpl implements ProdutoRepository {
 
-    @Autowired
-    private CategoriaRepository categoriaRepository;
+    //@Autowired
+    private CategoriaRepository categoriaRepository = new CategoriaRepositoryMockImpl();
 
     private Map<Long, Produto> mapItens;
 

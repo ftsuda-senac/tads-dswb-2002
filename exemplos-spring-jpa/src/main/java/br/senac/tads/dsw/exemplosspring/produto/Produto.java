@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
@@ -24,6 +26,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "Produto.findAll", query = "SELECT p FROM Produto p"),
+    @NamedQuery(name = "Produto.findById", query = "SELECT p FROM Produto p WHERE p.id = :idProd"),
+    @NamedQuery(name = "Produto.findByCategoriasId", query = "SELECT p FROM Produto p INNER JOIN p.categorias c WHERE c.id IN :idsCat")
+})
 public class Produto implements Serializable {
 
     private static final long serialVersionUID = 1L;
