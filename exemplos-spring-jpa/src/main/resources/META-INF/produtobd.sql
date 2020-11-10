@@ -40,15 +40,15 @@ INSERT INTO CATEGORIA (NOME) VALUES
 ('Categoria 4'),
 ('Categoria 5');
 
-INSERT INTO PRODUTO (NOME, DESCRICAO, PRECO_COMPRA, PRECO_VENDA, QUANTIDADE, DT_CADASTRO) VALUES
-('Eletrônico', 'Descrição do produto Eletrônico', 100.0, 200.0, 100, CURRENT_TIMESTAMP()),
-('Roupa', 'Descrição do produto Roupa', 40.0, 70.0, 200, CURRENT_TIMESTAMP()),
-('Viagem', 'Descrição do produto Viagem', 800.0, 1100.0, 20, CURRENT_TIMESTAMP()),
-('Esporte', 'Descrição do produto Esporte', 200.0, 300.0, 150, CURRENT_TIMESTAMP()),
-('Comida', 'Descrição do produto Comida', 15.0, 30.0, 500, CURRENT_TIMESTAMP()),
-('Diversão', 'Descrição do produto Diversão', 120.0, 350.0, 150, CURRENT_TIMESTAMP());
+INSERT INTO PRODUTO (NOME, DESCRICAO, PRECO_COMPRA, PRECO_VENDA, QUANTIDADE, DISPONIVEL, DT_CADASTRO) VALUES
+('Eletrônico', 'Descrição do produto Eletrônico', 100.0, 200.0, 100, true, CURRENT_TIMESTAMP()),
+('Roupa', 'Descrição do produto Roupa', 40.0, 70.0, 200, true, CURRENT_TIMESTAMP()),
+('Viagem', 'Descrição do produto Viagem', 800.0, 1100.0, 20, true, CURRENT_TIMESTAMP()),
+('Esporte', 'Descrição do produto Esporte', 200.0, 300.0, 150, true, CURRENT_TIMESTAMP()),
+('Comida', 'Descrição do produto Comida', 15.0, 30.0, 500, true, CURRENT_TIMESTAMP()),
+('Diversão', 'Descrição do produto Diversão', 120.0, 350.0, 150, true, CURRENT_TIMESTAMP());
 
-INSERT INTO PRODUTO_CATEGORIA (ID_PRODUTO, ID_CATEGORIA) VALUES
+INSERT INTO PRODUTO_CATEGORIA (PRODUTO_ID, CATEGORIA_ID) VALUES
 (1, 1),
 (1, 2),
 (2, 3),
@@ -62,7 +62,7 @@ INSERT INTO PRODUTO_CATEGORIA (ID_PRODUTO, ID_CATEGORIA) VALUES
 (6, 3),
 (6, 5);
 
-INSERT INTO IMAGEM_PRODUTO (NOME_ARQUIVO, LEGENDA, ID_PRODUTO) VALUES
+INSERT INTO IMAGEM_PRODUTO (NOME_ARQUIVO, LEGENDA, PRODUTO_ID) VALUES
 ('http://lorempixel.com/300/300/technics/1/', 'technics 1', 1),
 ('http://lorempixel.com/300/300/technics/2/', 'technics 2', 1),
 ('http://lorempixel.com/300/300/technics/7/', 'technics 7', 1),

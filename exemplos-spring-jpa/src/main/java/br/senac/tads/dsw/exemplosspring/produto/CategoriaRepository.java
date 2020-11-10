@@ -1,13 +1,18 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package br.senac.tads.dsw.exemplosspring.produto;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CategoriaRepository {
-
-    List<Categoria> findAll();
-
-    Categoria findById(Integer id);
-
-    Categoria save(Categoria cat);
+/**
+ *
+ * @author fedts
+ */
+@Repository
+public interface CategoriaRepository extends JpaRepository<Categoria, Integer> {
 
 }
