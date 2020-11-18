@@ -44,6 +44,69 @@
         </style>
         <!-- IMPLEMENTAR FUNCIONALIDADES JAVASCRIPT/AJAX -->
         <script>
+var paginaAtual = 0; // 0-indexed
+var ultimaPagina = 0;
+var qtdAtual = 10;
+
+function montarLinhaTabela(item) {
+    return
+        '<tr>' +
+        '<td>' + item.id + '</td>' +
+        '<td>' + item.nome + '</td>' +
+        '<td>' + item.dataNascimento + '</td>' +
+        '<td>' +
+        '<a href="form.html?id=' + item.id + '" class="btn btn-primary"><i class="fa fa-pencil"></i></a>' +
+        '<button type="button" class="btn btn-danger" onclick="mostrarModal(' + item.id + ')"><i class="fa fa-trash"></i></button>' +
+        '</td>' +
+        '</tr>'
+}
+
+function ajustarPaginacao(respostaJSON) {
+    paginaAtual = respostaJSON.number;
+    ultimaPagina = respostaJSON.totalPages - 1;
+    
+    // TODO: Ajustar botões da paginação
+}
+
+function apagar(id) {
+    $.ajax({
+        type: 'DELETE',
+        url: '/rest/pessoas/' + id
+    }).always(function(jqXHR) {
+       alert('Pessoa ' + id + ' apagada')
+       carregarDados(paginaAtual, qtdAtual);
+    });
+}
+
+function carregarDados(pagina, qtd) {
+    let xhr =  new XMLHttpRequest();
+    xhr.open('GET', 'http://127.0.0.1:8080/rest/pessoas?pagina=' + pagina + '&qtd=' + qtd, true);
+    xhr.setRequestHeader('accept', 'application/json');
+    xhr.addEventListener('load', function() {
+       if (this.status >= 200 && this.status < 400) {
+           let tabela = document.getElementById("itensTabela");
+           tabela.innerHTML = ""; // Limpa conteúdo atual da tabela
+           let respostaJSON = JSON.parse(this.responseText);
+           
+           for (const item of respostaJSON.content) {
+               tabela.insertAdjacentHTML('beforeend', '<tr>' +
+        '<td>' + item.id + '</td>' +
+        '<td>' + item.nome + '</td>' +
+        '<td>' + item.dataNascimento + '</td>' +
+        '<td>' +
+        '<a href="form.html?id=' + item.id + '" class="btn btn-primary"><i class="fa fa-pencil"></i></a>' +
+        '<button type="button" class="btn btn-danger" onclick="apagar(' + item.id + ')"><i class="fa fa-trash"></i></button>' +
+        '</td>' +
+        '</tr>')
+           }
+       }
+    });
+    xhr.send();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    carregarDados(paginaAtual, qtdAtual);
+});
 
         </script>
     </head>

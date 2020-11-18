@@ -45,6 +45,60 @@
         <!-- IMPLEMENTAR FUNCIONALIDADES JAVASCRIPT/AJAX -->
         <script>
 
+function salvar() {
+    let form = document.getElementById('dadosForm');
+    let dados = {
+        id: form.id.value,
+        nome: form.nome.value,
+        sexo: form.sexo.value,
+        dataNascimento: form.dataNascimento.value,
+        interessesId: []
+    }
+    
+    let interessesSelecionados = document.querySelectorAll('input[name="interessesId"]:checked');
+    for (let interesse of interessesSelecionados) {
+        if (interesse.checked) {
+            dados.interessesId.push(interesse.value);
+        }
+    }
+    $.ajax({
+        type: 'POST',
+        url: 'http://127.0.0.1:8080/rest/pessoas',
+        data: JSON.stringify(dados),
+        contentType: 'application/json',
+        dataType: 'json'
+    }).always(function(jqXHR) {
+        let pessoaUri = jqXHR.getResponseHeader('Location');
+        alert('Location gerado: ' + pessoaUri);
+        window.location.href = 'lista.html';
+    })
+}
+
+$(function() {
+    
+    // Se informar ID na URL, carrega os dados
+    let urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('id') !== null) {
+        $.getJSON('/rest/pessoas/' + urlParams.get('id'), function(dataJSON) {
+           let form = document.getElementById('dadosForm');
+           form.id.value = dataJSON.id;
+           form.nome.value = dataJSON.nome;
+           form.sexo.value = dataJSON.sexo;
+           form.dataNascimento.value = dataJSON.dataNascimento;
+           for (let interesse of dataJSON.interesses) {
+               document.getElementById('interesse_' + interesse.id).checked = true;
+           }  
+        });
+        document.getElementById("titulo").innerHTML = "Editar dados";
+    }
+    
+    document.getElementById('dadosForm').addEventListener('submit', function(ev) {
+        ev.preventDefault();
+        salvar();
+    })
+    
+});
+
         </script>
     </head>
     <body class="d-flex flex-column h-100">
@@ -60,7 +114,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Inclusão de pessoa</h2>
+                        <h2 id="titulo">Inclusão de pessoa</h2>
                         <form id="dadosForm" novalidate>
                             <input type="hidden" name="id" value="">
                             <div class="form-group row">

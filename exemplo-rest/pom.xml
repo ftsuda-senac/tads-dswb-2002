@@ -69,6 +69,25 @@
             <version>4.7.0</version>
         </dependency>
 
+        <!-- DOCUMENTACAO OPEN API 3.0/SWAGGER 2 -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-data-rest</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-security</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+        -->
+        
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
